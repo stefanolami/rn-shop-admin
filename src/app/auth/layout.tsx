@@ -3,9 +3,7 @@ import { createClient } from '@/supabase/server'
 import { redirect } from 'next/navigation'
 import { ReactNode } from 'react'
 
-export default async function AdmninLayout({
-	children,
-}: Readonly<{ children: ReactNode }>) {
+const AuthLayout = async ({ children }: Readonly<{ children: ReactNode }>) => {
 	const supabase = await createClient()
 
 	const { data: authData } = await supabase.auth.getUser()
@@ -16,6 +14,7 @@ export default async function AdmninLayout({
 			.select('*')
 			.eq('id', authData.user.id)
 			.single()
+
 		console.log('DATA', data)
 		if (error || !data) {
 			console.log('Error fetching data', error)
@@ -24,9 +23,12 @@ export default async function AdmninLayout({
 
 		if (data.type === ADMIN) {
 			console.log(data.type)
-			return redirect('/')
+			return redirect('/admin')
 		}
 	}
 	console.log('AUTHDATA:', authData.user)
+
 	return <>{children}</>
 }
+
+export default AuthLayout
