@@ -16,6 +16,9 @@ import {
 import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
+import { useTheme } from 'next-themes'
+import { useRouter } from 'next/navigation'
+import { createClient } from '@/supabase/client'
 
 const NAV_LINKS = [
 	{ href: '/admin/dashboard', label: 'Dashboard' },
@@ -26,9 +29,13 @@ const NAV_LINKS = [
 
 export const Header = () => {
 	const pathname = usePathname()
+	const router = useRouter()
+	const { setTheme } = useTheme()
+	const supabase = createClient()
 
 	const handleLogout = async () => {
-		// Add logic to handle logout
+		await supabase.auth.signOut()
+		router.push('/')
 	}
 
 	return (
@@ -139,21 +146,21 @@ export const Header = () => {
 								<DropdownMenuContent align="end">
 									<DropdownMenuItem
 										onClick={() => {
-											/* Set light theme */
+											setTheme('light')
 										}}
 									>
 										Light
 									</DropdownMenuItem>
 									<DropdownMenuItem
 										onClick={() => {
-											/* Set light theme */
+											setTheme('dark')
 										}}
 									>
 										Dark
 									</DropdownMenuItem>
 									<DropdownMenuItem
 										onClick={() => {
-											/* Set light theme */
+											setTheme('system')
 										}}
 									>
 										System

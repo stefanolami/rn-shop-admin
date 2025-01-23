@@ -18,7 +18,6 @@ export default async function AdmninLayout({
 			.select('*')
 			.eq('id', authData.user.id)
 			.single()
-		console.log('DATA', data)
 		if (error || !data) {
 			console.log('Error fetching data', error)
 			return
@@ -29,7 +28,6 @@ export default async function AdmninLayout({
 			return redirect('/')
 		}
 	}
-	console.log('AUTHDATA:', authData.user)
 	return (
 		<>
 			<Header />
