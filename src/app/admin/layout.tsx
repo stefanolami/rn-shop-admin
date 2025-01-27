@@ -31,7 +31,7 @@ export default async function AdmninLayout({
 	return (
 		<>
 			<Header />
-			<main className="min-h-[calc(100svh-128px)] py-3">{children}</main>
+			<main className="min-h-[calc(100svh-128px)] p-7">{children}</main>
 			<Footer />
 		</>
 	)

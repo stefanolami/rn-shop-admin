@@ -1,11 +1,10 @@
 import { getCategoriesWithProducts } from '@/actions/categories'
+import Categories from '@/components/Categories'
 
 const CategoriesPage = async () => {
 	const categories = await getCategoriesWithProducts()
 
-	console.log(categories)
-
-	return <div>CategoriesPage</div>
+	return <Categories categories={categories} />
 }
 
 export default CategoriesPage
