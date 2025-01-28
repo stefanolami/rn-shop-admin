@@ -123,7 +123,7 @@ export const CategoryTableRow = ({
 					)} */}
 				</TableCell>
 				<TableCell>
-					<DropdownMenu>
+					<DropdownMenu modal={false}>
 						<DropdownMenuTrigger>
 							<div>
 								<MoreHorizontal className="h-4 w-4" />
