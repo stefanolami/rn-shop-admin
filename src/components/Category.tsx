@@ -72,7 +72,7 @@ export const CategoryTableRow = ({
 					{format(new Date(category.created_at), 'yyyy-MM-dd')}
 				</TableCell>
 				<TableCell className="md:table-cell">
-					{/* {category.products && category.products.length > 0 ? (
+					{category.products && category.products.length > 0 ? (
 						<Dialog>
 							<DialogTrigger>
 								{category.products
@@ -120,7 +120,7 @@ export const CategoryTableRow = ({
 						</Dialog>
 					) : (
 						'No products linked to this category'
-					)} */}
+					)}
 				</TableCell>
 				<TableCell>
 					<DropdownMenu modal={false}>

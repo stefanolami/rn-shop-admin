@@ -1,13 +1,11 @@
-export type Product = {
-	category: number
+import { ProductWithCategory } from '@/app/admin/products/products.types'
+
+export type Category = {
 	created_at: string
-	hero_image: string
 	id: number
-	image_url: string[]
-	max_quantity: number
-	price: number | null
+	imageUrl: string
+	name: string
 	slug: string
-	title: string
 }
 
 export type CategoryWithProducts = {
@@ -15,7 +13,7 @@ export type CategoryWithProducts = {
 	id: number
 	imageUrl: string
 	name: string
-	products: Product[]
+	products: ProductWithCategory[]
 	slug: string
 }
 

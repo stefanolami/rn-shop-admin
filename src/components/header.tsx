@@ -19,6 +19,8 @@ import { cn } from '@/lib/utils'
 import { useTheme } from 'next-themes'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/supabase/client'
+import { DialogDescription, DialogTitle } from './ui/dialog'
+import { Dialog } from '@radix-ui/react-dialog'
 
 const NAV_LINKS = [
 	{ href: '/admin/dashboard', label: 'Dashboard' },
@@ -74,6 +76,10 @@ export const Header = () => {
 					</Button>
 				</SheetTrigger>
 				<SheetContent side="left">
+					<DialogTitle className="sr-only">Navigation</DialogTitle>
+					<DialogDescription className="sr-only">
+						Mobile menu navigation
+					</DialogDescription>
 					<nav className="grid gap-6 text-lg font-medium">
 						<Link
 							href="/"
