@@ -56,7 +56,7 @@ export const createProduct = async ({
 export const updateProduct = async ({
 	category,
 	heroImage,
-	imagesUrl,
+	images,
 	maxQuantity,
 	price,
 	slug,
@@ -68,7 +68,7 @@ export const updateProduct = async ({
 		.update({
 			category,
 			heroImage,
-			images: imagesUrl,
+			images: images,
 			maxQuantity,
 			price,
 			title,

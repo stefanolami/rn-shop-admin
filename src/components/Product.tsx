@@ -134,7 +134,7 @@ const Product: FC<Props> = ({ categories, productsWithCategories }) => {
 					await updateProduct({
 						category: Number(category),
 						heroImage: heroImageUrl,
-						imagesUrl: imagesUrls,
+						images: imagesUrls,
 						maxQuantity: Number(maxQuantity),
 						price: Number(price),
 						slug,

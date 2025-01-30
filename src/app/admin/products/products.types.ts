@@ -1,11 +1,11 @@
 import { Category } from '../categories/categories.types'
 
 export type ProductWithCategory = {
-	category: Category[]
+	category: Category
 	created_at: string
 	heroImage: string
 	id: number
-	imagesUrl: string[]
+	images: string[]
 	maxQuantity: number
 	price: number | null
 	slug: string
@@ -17,7 +17,7 @@ export type ProductsWithCategoriesResponse = ProductWithCategory[]
 export type UpdateProductSchema = {
 	category: number
 	heroImage: string
-	imagesUrl: string[]
+	images: string[]
 	maxQuantity: number
 	price: number | null
 	slug: string
