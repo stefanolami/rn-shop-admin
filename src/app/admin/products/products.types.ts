@@ -19,7 +19,7 @@ export type UpdateProductSchema = {
 	heroImage: string
 	images: string[]
 	maxQuantity: number
-	price: number | null
+	price: number | undefined
 	slug: string
 	title: string
 }

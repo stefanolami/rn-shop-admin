@@ -36,13 +36,90 @@ export type Database = {
 				}
 				Relationships: []
 			}
+			order_items: {
+				Row: {
+					created_at: string
+					id: number
+					order: number
+					product: number
+					quantity: number
+				}
+				Insert: {
+					created_at?: string
+					id?: number
+					order: number
+					product: number
+					quantity: number
+				}
+				Update: {
+					created_at?: string
+					id?: number
+					order?: number
+					product?: number
+					quantity?: number
+				}
+				Relationships: [
+					{
+						foreignKeyName: 'order_items_order_fkey'
+						columns: ['order']
+						isOneToOne: false
+						referencedRelation: 'orders'
+						referencedColumns: ['id']
+					},
+					{
+						foreignKeyName: 'order_items_product_fkey'
+						columns: ['product']
+						isOneToOne: false
+						referencedRelation: 'products'
+						referencedColumns: ['id']
+					}
+				]
+			}
+			orders: {
+				Row: {
+					created_at: string
+					description: string | null
+					id: number
+					slug: string
+					status: string
+					totalPrice: number
+					user: string
+				}
+				Insert: {
+					created_at?: string
+					description?: string | null
+					id?: number
+					slug: string
+					status: string
+					totalPrice: number
+					user: string
+				}
+				Update: {
+					created_at?: string
+					description?: string | null
+					id?: number
+					slug?: string
+					status?: string
+					totalPrice?: number
+					user?: string
+				}
+				Relationships: [
+					{
+						foreignKeyName: 'orders_user_fkey'
+						columns: ['user']
+						isOneToOne: false
+						referencedRelation: 'users'
+						referencedColumns: ['id']
+					}
+				]
+			}
 			products: {
 				Row: {
 					category: number
 					created_at: string
 					heroImage: string
 					id: number
-					imagesUrl: string[]
+					images: string[]
 					maxQuantity: number
 					price: number
 					slug: string
@@ -53,7 +130,7 @@ export type Database = {
 					created_at?: string
 					heroImage: string
 					id?: number
-					imagesUrl: string[]
+					images: string[]
 					maxQuantity: number
 					price: number
 					slug: string
@@ -64,7 +141,7 @@ export type Database = {
 					created_at?: string
 					heroImage?: string
 					id?: number
-					imagesUrl?: string[]
+					images?: string[]
 					maxQuantity?: number
 					price?: number
 					slug?: string
@@ -109,7 +186,13 @@ export type Database = {
 			[_ in never]: never
 		}
 		Functions: {
-			[_ in never]: never
+			decrement_product_quantity: {
+				Args: {
+					product_id: number
+					quantity: number
+				}
+				Returns: undefined
+			}
 		}
 		Enums: {
 			[_ in never]: never

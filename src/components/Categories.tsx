@@ -135,6 +135,7 @@ const Categories: FC<Props> = ({ categories }) => {
 	return (
 		<main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
 			<div className="flex items-center my-10">
+				<h1 className="text-2xl font-bold">Categories</h1>
 				<div className="ml-auto flex items-center gap-2">
 					<Dialog
 						open={isCreateCategoryModalOpen}
