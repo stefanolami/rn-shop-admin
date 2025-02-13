@@ -8,6 +8,7 @@ import {
 	UpdateCategorySchema,
 } from '@/app/admin/categories/create-category.schema'
 import { createClient } from '@/supabase/server'
+import { revalidatePath } from 'next/cache'
 
 export const getCategoriesWithProducts =
 	async (): Promise<CategoriesWithProductResponse> => {
@@ -77,6 +78,8 @@ export const createCategory = async ({
 		throw new Error('Error creating category')
 	}
 
+	revalidatePath('/admin/categories')
+
 	return data
 }
 
@@ -97,6 +100,8 @@ export const updateCategory = async ({
 		throw new Error('Error updating category')
 	}
 
+	revalidatePath('/admin/categories')
+
 	return data
 }
 
@@ -109,6 +114,8 @@ export const deleteCategory = async (id: number) => {
 		console.error('Error deleting category', error)
 		throw new Error('Error deleting category')
 	}
+
+	revalidatePath('/admin/categories')
 }
 
 export const getCategoryData = async () => {
