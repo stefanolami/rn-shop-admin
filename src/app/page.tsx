@@ -156,132 +156,136 @@ export default function HomePage() {
 					</div>
 				</section>
 
-				<section className="mb-24">
-					<h3 className="text-3xl font-bold mb-8 text-center">
-						App Features
-					</h3>
-					<div className="mx-auto max-w-[500px] md:max-w-[1000px] grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-8">
-						{features.map((feature, index) => (
-							<MotionWrapper
-								key={index}
-								delay={index * 0.1}
-							>
-								<div className="bg-background hover:bg-background/80 transition duration-200 rounded-xl shadow-lg hover:shadow-xl h-full">
-									<CardContent className="p-6 flex flex-col items-center text-center">
-										<feature.icon className="h-12 w-12  mb-4" />
-										<h4 className="text-xl font-semibold mb-2">
-											{feature.title}
-										</h4>
-										<p>{feature.description}</p>
-									</CardContent>
-								</div>
-							</MotionWrapper>
-						))}
-					</div>
-				</section>
+				<div className="mx-auto max-w-[500px] md:max-w-[1000px] ">
+					<section className="mb-24">
+						<h3 className="text-3xl font-bold mb-8 text-center">
+							App Features
+						</h3>
+						<div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-8">
+							{features.map((feature, index) => (
+								<MotionWrapper
+									key={index}
+									delay={index * 0.1}
+								>
+									<div className="bg-background hover:bg-background/80 transition duration-200 rounded-xl shadow-lg hover:shadow-xl h-full">
+										<CardContent className="p-6 flex flex-col items-center text-center">
+											<feature.icon className="h-12 w-12  mb-4" />
+											<h4 className="text-xl font-semibold mb-2">
+												{feature.title}
+											</h4>
+											<p>{feature.description}</p>
+										</CardContent>
+									</div>
+								</MotionWrapper>
+							))}
+						</div>
+					</section>
 
-				<section className="mb-24">
-					<Card className="bg-[#1BC464] text-white">
-						<CardContent className="p-8 text-center">
-							<h3 className="text-3xl font-bold mb-4">
-								Download GadgetApp Today
-							</h3>
-							<p className="text-xl mb-6">
-								Experience the future of gadget shopping at your
-								fingertips.
-							</p>
-							<div className="flex flex-wrap justify-center gap-4 md:gap-0 md:flex-nowrap md:space-x-4">
-								<Button
-									size="lg"
-									className="bg-white hover:bg-indigo-100"
+					<section className="mb-24">
+						<Card className="bg-[#1BC464] text-white">
+							<CardContent className="p-8 text-center">
+								<h3 className="text-3xl font-bold mb-4">
+									Download GadgetApp Today
+								</h3>
+								<p className="text-xl mb-6">
+									Experience the future of gadget shopping at
+									your fingertips.
+								</p>
+								<div className="flex flex-wrap justify-center gap-4 md:gap-0 md:flex-nowrap md:space-x-4">
+									<Button
+										size="lg"
+										className="bg-white hover:bg-indigo-100"
+									>
+										<Image
+											src="/apple.jpeg"
+											alt="App Store"
+											className="mr-2 h-6 w-6"
+											height={24}
+											width={24}
+										/>
+										App Store
+									</Button>
+									<Button
+										size="lg"
+										className="bg-white hover:bg-indigo-100"
+									>
+										<Image
+											src="/google-play.png"
+											alt="Google Play"
+											className="mr-2 h-6 w-6"
+											height={24}
+											width={24}
+										/>
+										Google Play
+									</Button>
+								</div>
+							</CardContent>
+						</Card>
+					</section>
+					<section className="mb-24">
+						<h3 className="text-3xl font-bold mb-8 text-center">
+							What Our Users Say
+						</h3>
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+							{testimonials.map((testimonial, index) => (
+								<MotionWrapper
+									key={index}
+									delay={index * 0.1}
 								>
-									<Image
-										src="/apple.jpeg"
-										alt="App Store"
-										className="mr-2 h-6 w-6"
-										height={24}
-										width={24}
-									/>
-									App Store
-								</Button>
-								<Button
-									size="lg"
-									className="bg-white hover:bg-indigo-100"
-								>
-									<Image
-										src="/google-play.png"
-										alt="Google Play"
-										className="mr-2 h-6 w-6"
-										height={24}
-										width={24}
-									/>
-									Google Play
-								</Button>
-							</div>
-						</CardContent>
-					</Card>
-				</section>
-				<section className="mb-24">
-					<h3 className="text-3xl font-bold mb-8 text-center">
-						What Our Users Say
-					</h3>
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-						{testimonials.map((testimonial, index) => (
-							<MotionWrapper
-								key={index}
-								delay={index * 0.1}
-							>
-								<Card>
-									<CardContent className="p-6">
-										<div className="flex items-center mb-4">
-											<Image
-												src={`https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YXZhdGFyfGVufDB8fDB8fHww`}
-												alt={testimonial.name}
-												className="w-12 h-12 rounded-full mr-4 object-cover"
-												width={48}
-												height={48}
-											/>
-											<div>
-												<h4 className="font-semibold">
-													{testimonial.name}
-												</h4>
-												<div className="flex text-[#1BC464]">
-													{[...Array(5)].map(
-														(_, i) => (
-															<Star
-																key={i}
-																className="h-4 w-4 fill-current"
-															/>
-														)
-													)}
+									<Card>
+										<CardContent className="p-6">
+											<div className="flex items-center mb-4">
+												<Image
+													src={`https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YXZhdGFyfGVufDB8fDB8fHww`}
+													alt={testimonial.name}
+													className="w-12 h-12 rounded-full mr-4 object-cover"
+													width={48}
+													height={48}
+												/>
+												<div>
+													<h4 className="font-semibold">
+														{testimonial.name}
+													</h4>
+													<div className="flex text-[#1BC464]">
+														{[...Array(5)].map(
+															(_, i) => (
+																<Star
+																	key={i}
+																	className="h-4 w-4 fill-current"
+																/>
+															)
+														)}
+													</div>
 												</div>
 											</div>
-										</div>
-										<p className="italic">
-											&quot; {testimonial.comment} &quot;
-										</p>
-									</CardContent>
-								</Card>
-							</MotionWrapper>
-						))}
-					</div>
-				</section>
+											<p className="italic">
+												&quot; {testimonial.comment}{' '}
+												&quot;
+											</p>
+										</CardContent>
+									</Card>
+								</MotionWrapper>
+							))}
+						</div>
+					</section>
 
-				<section className="text-center">
-					<h3 className="text-3xl font-bold mb-4">
-						Ready to Transform Your Gadget Shopping?
-					</h3>
-					<p className="text-xl  mb-8">
-						Download GadgetApp now and get 20% off your first in-app
-						purchase!
-					</p>
-					<Button
-						size="lg"
-						className="bg-[#1BC464] hover:bg-[#1bc464d7]"
-					>
-						Get Started <ChevronRight className="ml-2 h-4 w-4" />
-					</Button>
-				</section>
+					<section className="text-center">
+						<h3 className="text-3xl font-bold mb-4">
+							Ready to Transform Your Gadget Shopping?
+						</h3>
+						<p className="text-xl  mb-8">
+							Download GadgetApp now and get 20% off your first
+							in-app purchase!
+						</p>
+						<Button
+							size="lg"
+							className="bg-[#1BC464] hover:bg-[#1bc464d7]"
+						>
+							Get Started{' '}
+							<ChevronRight className="ml-2 h-4 w-4" />
+						</Button>
+					</section>
+				</div>
 			</main>
 
 			<footer className="bg-[#1BC464] text-white z-10 relative">
